@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Maps.Views.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Quick Start">
+    <FlexLayout
+        Direction="Column"
+        HorizontalOptions="FillAndExpand"
+        JustifyContent="SpaceBetween"
+        VerticalOptions="FillAndExpand">
+        <StackLayout>
+            <Label
+                HorizontalOptions="CenterAndExpand"
+                Text="Developed by (LinkedIn)"
+                VerticalOptions="CenterAndExpand" />
+            <Button
+                Margin="10"
+                BackgroundColor="#0077B5"
+                Command="{Binding DeveloperPageCommand}"
+                HorizontalOptions="FillAndExpand"
+                Text="Victor Latriglia"
+                VerticalOptions="FillAndExpand" />
+        </StackLayout>
+        <StackLayout HorizontalOptions="Center">
+            <Label
+                HorizontalOptions="CenterAndExpand"
+                Text="In asociation with CreApps Co"
+                VerticalOptions="CenterAndExpand" />
+            <StackLayout
+                HorizontalOptions="FillAndExpand"
+                Orientation="Horizontal"
+                VerticalOptions="FillAndExpand">
+                <Button
+                    Margin="10"
+                    BackgroundColor="#0077B5"
+                    Command="{Binding CompanyPageCommand}"
+                    CommandParameter="LinkedIn"
+                    HorizontalOptions="FillAndExpand"
+                    Text="LinkedIn"
+                    VerticalOptions="FillAndExpand" />
+                <Button
+                    Margin="10"
+                    BackgroundColor="#0077B5"
+                    Command="{Binding CompanyPageCommand}"
+                    CommandParameter="WebSite"
+                    HorizontalOptions="FillAndExpand"
+                    Text="Web site"
+                    VerticalOptions="FillAndExpand" />
+            </StackLayout>
+        </StackLayout>
+        <Button
+            Command="{Binding NavigateToPageCommand}"
+            HorizontalOptions="FillAndExpand"
+            Text="ToDo Example"
+            VerticalOptions="FillAndExpand" />
+    </FlexLayout>
+</ContentPage>

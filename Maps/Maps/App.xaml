@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<prism:PrismApplication
+    x:Class="Maps.App"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:Maps.Converters;assembly=Maps"
+    xmlns:prism="clr-namespace:Prism.Unity;assembly=Prism.Unity.Forms">
+    <Application.Resources>
+
+        <!--  Application resource dictionary  -->
+        <ResourceDictionary>
+            <!--  colors  -->
+
+            <Color x:Key="TimelineColor">#E4B6C3</Color>
+            <Color x:Key="HeaderTextColor">#3C3C3C</Color>
+            <Color x:Key="BodyTextColor">#869EAC</Color>
+            <Color x:Key="TimeColor">#A64C79</Color>
+
+            <!--  styles  -->
+            <Style x:Key="PageHeaderLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource HeaderTextColor}" />
+            </Style>
+
+            <Style x:Key="SubHeaderLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource BodyTextColor}" />
+            </Style>
+
+            <Style x:Key="ClassTimeLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource TimeColor}" />
+            </Style>
+
+            <Style x:Key="ClassNameLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource HeaderTextColor}" />
+            </Style>
+
+            <Style x:Key="ClassInstructorLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource BodyTextColor}" />
+            </Style>
+
+            <converters:InverseBoolConverter x:Key="InverseBoolConverter" />
+
+        </ResourceDictionary>
+
+    </Application.Resources>
+</prism:PrismApplication>

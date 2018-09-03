@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Maps.Views.ToDoPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:extensions="clr-namespace:Maps.Extensions;assembly=Maps"
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    Title="To Do"
+    prism:ViewModelLocator.AutowireViewModel="True">
+
+    <ListView
+        x:Name="timelineListView"
+        HasUnevenRows="True"
+        ItemsSource="{Binding Steps}"
+        SeparatorVisibility="None">
+
+        <ListView.Header>
+            <StackLayout Padding="20,40,0,30">
+                <Label Style="{StaticResource PageHeaderLabel}" Text="To Do list" />
+                <Label Style="{StaticResource SubHeaderLabel}" Text="{Binding Today}" />
+            </StackLayout>
+        </ListView.Header>
+
+        <ListView.Footer>
+            <StackLayout
+                Padding="5"
+                HeightRequest="200"
+                WidthRequest="200">
+                <Image
+                    Aspect="AspectFit"
+                    HeightRequest="150"
+                    Source="{extensions:ImageResource Maps.Images.CreappsLogo.png}"
+                    WidthRequest="150" />
+            </StackLayout>
+        </ListView.Footer>
+
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Grid ColumnSpacing="0" RowSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <Image
+                            Grid.Column="0"
+                            IsVisible="{Binding IsCompleted}"
+                            Source="{extensions:ImageResource Maps.Images.BulletChecked.png}" />
+                        <Image
+                            Grid.Column="0"
+                            IsVisible="{Binding IsCompleted, Converter={StaticResource InverseBoolConverter}}"
+                            Source="{extensions:ImageResource Maps.Images.Bullet.png}" />
+
+
+                        <Label
+                            Grid.Column="1"
+                            Margin="20,0"
+                            Style="{StaticResource ClassNameLabel}"
+                            Text="{Binding Title}" />
+
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Margin="20,0"
+                            Style="{StaticResource ClassInstructorLabel}"
+                            Text="{Binding Description}" />
+
+                        <BoxView
+                            Grid.Row="1"
+                            Grid.RowSpan="2"
+                            BackgroundColor="{StaticResource TimelineColor}"
+                            HorizontalOptions="Center"
+                            IsVisible="{Binding IsLast, Converter={StaticResource InverseBoolConverter}}"
+                            VerticalOptions="Fill"
+                            WidthRequest="3" />
+
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>
